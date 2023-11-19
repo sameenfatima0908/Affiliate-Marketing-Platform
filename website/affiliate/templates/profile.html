@@ -1,0 +1,151 @@
+{% load static  %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Sign Up - Link Affiliatley</title>
+        <link href='https://fonts.googleapis.com/css?family=Italiana' rel='stylesheet' />
+        <!-- Favicon-->
+        <link rel="icon" type="image/png" href="{%static 'affiliate/assets/icon.png' %}" />
+        
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static 'affiliate/css/styles.css'  %}" rel="stylesheet" />
+        <style>
+        .navbar-nav .nav-link 
+        {
+            color: #003665;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .navbar-brand 
+        {
+            color: #003665;
+            font-family: 'Italiana';
+            font-weight: 700;
+        }
+
+        .navbar-brand:hover, .navbar-nav .nav-link:hover 
+        {
+            color: #7db8ed;
+        }
+
+        .login-btn
+        {
+            color: #ffffff;
+            background-color: #003665;
+        }
+        
+        .login-btn:hover
+        {
+            color: white;
+            background-color: #002240;
+        }
+        .navbar-brand 
+        {
+            color: #003665;
+            font-family: 'Italiana';
+            font-weight: 700;
+        }
+
+        .btn-outline
+        {
+            border: 0.09rem solid #003665;
+            color: #003665;
+        }
+
+        .btn-outline:hover
+        {
+            background-color:  #003665;
+            color: white;
+        }
+
+        .btn-s
+        {
+            color: white;
+            background-color: #003665;
+        }
+        .btn-s:hover
+        {
+            color: white;
+            background-color:#033a70;
+        }
+        .terms
+        {
+            color: #033a70;
+        }
+
+        .terms:hover
+        {
+            color: #003365;
+        }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            
+            <!-- Header-->
+            <header style= "background-image: url('{%static 'affiliate/images/bg-7.jpg' %}'); background-repeat: no-repeat; padding-bottom: 20rem; padding-top: 1rem;  background-size: cover;">
+                <nav style="color: #000000;" class="navbar navbar-expand-lg navbar-transparent ">
+                    <div class="container px-5">
+                        <a class="navbar-brand" href="{% url 'home' %}">LINK AFFILIATELY</a>
+                        <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+                                <li class="nav-item"><a class="nav-link" href="pricing">Pricing</a></li>
+                                <li class="nav-item"><a class="nav-link" href="faq">FAQ</a></li>
+                                <form class="d-flex" id="authstyle">  
+                                    {% if user.is_authenticated %}  
+                                    <li class="nav-item"><a style="margin-top: 3px; margin-left: 2px;" class="btn btn-sm px-4 me-sm-3 login-btn" href="{% url 'profile' %}">Welcome {{user.username}},</a></li>
+                                    <li class="nav-item"><a style="margin-top: 3px; margin-left: 2px;" class="btn btn-sm px-4 me-sm-3 login-btn" href="{% url 'logout' %}">Logout</a></li>
+                                    
+                                    {% else %}
+
+                                    <li class="nav-item"><a style="margin-top: 3px; margin-left: 2px;" class="btn btn-sm px-4 me-sm-3 login-btn" href="{% url 'login' %}">Login</a></li>
+                                    <li class="nav-item"><a style="margin-top: 3px;" class="btn btn-outline btn-sm px-4" href="{% url 'signup' %}">Sign Up</a></li>
+
+                                    {% endif %}
+                                </form>    
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            <!-- Profile Section-->
+            <section class="vh-60" style="background-color: transparent;">
+                <div class="container" style="padding: 3rem; font-family: Arial, Helvetica, sans-serif; color: #003365;">
+                    <h3>{{user.username}}</h3>
+                    <h3>{{user.email}}</h3>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer style="background-color: #003365; " class="py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; LINK AFFILIATELY 2023</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="privacy">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="privacy">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{%static 'affiliate/js/scripts.js' %}"></script>
+    </body>
+</html>

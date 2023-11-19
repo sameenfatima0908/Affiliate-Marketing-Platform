@@ -1,0 +1,167 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Link Affiliatley</title>
+        <link href='https://fonts.googleapis.com/css?family=Italiana' rel='stylesheet' />
+        <!-- Favicon-->
+        <link rel="icon" type="image/png" href="{%static 'affiliate/assets/icon.png' %}" />
+        
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static 'affiliate/css/styles.css'  %}" rel="stylesheet" />
+        <style>
+          .navbar-nav .nav-link {
+            color: #003665;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+          
+          .navbar-brand {
+            color: #003665;
+            font-family: 'Italiana';
+            font-weight: 700;
+          }
+
+          .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #7db8ed;
+          }
+
+        .login-btn
+        {
+            color: #ffffff;
+            background-color: #003665;
+        }
+        
+        .login-btn:hover
+        {
+            color: white;
+            background-color: #002240;
+        }
+        .navbar-brand 
+        {
+            color: #003665;
+            font-family: 'Italiana';
+            font-weight: 700;
+        }
+
+        .btn-outline
+        {
+            border: 0.09rem solid #003665;
+            color: #003665;
+        }
+
+        .btn-outline:hover
+        {
+            background-color:  #003665;
+            color: white;
+        } 
+
+          .bg-primary
+          {
+            background-color: red;
+          }
+
+          .newsletter
+          {
+            background-color: #003665;
+          }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            
+            <!-- Header-->
+            <header style= "background-image: url('{%static 'affiliate/images/bg-7.jpg' %}'); background-repeat: no-repeat; padding-bottom: 8rem; padding-top: 1rem;  background-size: cover;">
+                <nav style="color: #000000;" class="navbar navbar-expand-lg navbar-transparent ">
+                    <div class="container px-5">
+                        <a class="navbar-brand" href="{% url 'home' %}">LINK AFFILIATELY</a>
+                        <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pricing">Pricing</a></li>
+                            <li class="nav-item"><a class="nav-link" href="faq">FAQ</a></li>
+                            
+                            <form class="d-flex" id="authstyle">  
+                                {% if user.is_authenticated %}  
+                                <li class="nav-item"><a style="margin-top: 3px; margin-left: 2px;" class="btn btn-sm px-4 me-sm-3 login-btn" href="{% url 'profile' %}">Welcome {{user.username}},</a></li>
+                                <li class="nav-item"><a style="margin-top: 3px; margin-left: 2px;" class="btn btn-sm px-4 me-sm-3 login-btn" href="{% url 'logout' %}">Logout</a></li>
+                                
+                                {% else %}
+
+                                <li class="nav-item"><a style="margin-top: 3px; margin-left: 2px;" class="btn btn-sm px-4 me-sm-3 login-btn" href="{% url 'login' %}">Login</a></li>
+                                <li class="nav-item"><a style="margin-top: 3px;" class="btn btn-outline btn-sm px-4" href="{% url 'signup' %}">Sign Up</a></li>
+
+                                {% endif %}
+                            </form>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            <!-- Page Content-->
+            <section style="color: #003365;" class="py-5">
+                <div class="container px-5">
+                    <div class="gx-5">
+                        <div>
+                            <div class="mb-5">
+                                <h1 class="fw-bolder text-center">Privacy Policy</h1>
+                                <p class="lead fw-normal mb-0">
+                                    <br><strong>Privacy Policy</strong><br>
+                                    This Privacy Policy outlines how we collect, use, and safeguard the personal information you provide on our affiliate platform website. We are committed to ensuring the privacy and security of your data.<br>
+                                    
+                                    <br><strong>Information Collection and Use:</strong>
+                                    We may collect personal information such as your name, email address, and payment details when you sign up as an affiliate on our platform. This information is used to facilitate affiliate partnerships, process payments, and communicate important updates.<br>
+                                    
+                                    <br><strong>Data Security:</strong>
+                                    We employ industry-standard security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, please note that no method of data transmission over the internet or electronic storage is entirely secure, and we cannot guarantee absolute security.<br>
+                                    
+                                    <br><strong>Cookies:</strong>
+                                    Our website may use cookies to enhance your browsing experience and track user activity. These cookies may collect non-personal information such as browser type, device type, and IP address. You have the option to disable cookies through your browser settings.<br>
+                                    
+                                    <br><strong>Third-Party Links:</strong>
+                                    Our website may contain links to third-party websites or services. We are not responsible for the privacy practices or content of these third parties. We encourage you to review the privacy policies of any third-party sites you visit.<br>
+                                    
+                                    <br><strong>Data Retention:</strong>
+                                    We will retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.<br>
+                                    
+                                    <br><strong>Your Rights:</strong>
+                                    You have the right to access, update, or delete your personal information. You can also opt out of any marketing communications you receive from us. Please contact us if you wish to exercise any of these rights.<br>
+                                    
+                                    <br><strong>Updates to the Privacy Policy:Your Rights:</strong>
+                                    We reserve the right to update or modify this Privacy Policy at any time. Any changes will be posted on this page, and the revised date will be indicated at the top of the page. We encourage you to review this Privacy Policy periodically for any updates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer style="background-color: #003365; " class="py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; LINK AFFILIATELY 2023</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="privacy">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="privacy">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{%static 'affiliate/js/scripts.js' %}"></script>
+    </body>
+</html>
